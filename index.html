@@ -29,14 +29,22 @@
             // API key
             var APIKey = "e12e920767d761fecb84037722ebae76";
             var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + APIKey;
+            $("#city-view").html("");
             // AJAX call
             $.ajax({
                 url: queryURL,
                 method: "GET"
             }).then(function (response) {
-                console.log(response);
-                var cityName = $("<div class='city'>");
-                var temperature = response.main;
+                console.log(response, $("city-view").html());
+                // var cityName = $("<div class='city'>");
+                var temperature = ((response.main.temp - 273.15) * 4.5) - 32;
+                var tempel = $("<div>").text(temperature.toFixed(2))
+                $("#city-view").append(tempel);
+                var icon = (response.weather[0].icon);
+                var iconEl = $("<img>").attr("src","http://openweathermap.org/img/wn/" + icon +"@2x.png");
+                $("#city-view").append(iconEl);
+
+
             });
         });
 
@@ -45,3 +53,4 @@
 </body>
 
 </html>
+
