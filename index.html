@@ -24,7 +24,6 @@
             </div>
         </div>
 
-<<<<<<< HEAD
         <main id="main-display" class="column">
             <article>
                 <div class="columns is-variable is-0">
@@ -34,38 +33,6 @@
                         <h id="windSpeed">Wind Speed: <span class="windSpeed"></span></h><br>
                         <h id="humidity">Humidity: <span class="humidity"></span></h><br>
                         <h id="UVindex">UV Index: <span class="UVindex"></span></h><br>
-                    </div>
-=======
-        // Build button to trigger AJAX call
-        $("#find-city").on("click", function (event) {
-            event.preventDefault();
-            var city = $("#city-input").val();
-            searchHistory.push(city)
-            // API key
-            var APIKey = "e12e920767d761fecb84037722ebae76";
-            var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + APIKey;
-            $("#city-view").html("");
-            // AJAX call
-            $.ajax({
-                url: queryURL,
-                method: "GET"
-            }).then(function (response) {
-                console.log(response, $("city-view").html());
-                // var cityName = $("<div class='city'>");
-                var temperature = ((response.main.temp - 273.15) * 4.5) - 32;
-                var tempel = $("<div>").text(temperature.toFixed(2))
-                $("#city-view").append(tempel);
-                var icon = (response.weather[0].icon);
-                var iconEl = $("<img>").attr("src","http://openweathermap.org/img/wn/" + icon +"@2x.png");
-                $("#city-view").append(iconEl);
-
-
-            });
-        });
->>>>>>> 57c637c92e73a513adad5dc41670a3b15e6773fc
-
-                    <div id="display-results" class="column">
-                        <div class="show-image"></div><br>
                     </div>
                 </div>
             </article>
