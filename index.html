@@ -4,44 +4,47 @@
 <head>
     <meta charset="utf-8">
     <title>Weather Dashboard</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <link rel="stylesheet" href="./style.css">
 </head>
-<header>Traveller's Guide</header>
 
 <body>
+    <header class="header">Traveller's Guide</header>
     <!-- Searching and search history users input -->
-    <section>City Search
-        <form id="city-form">
-            <label for="city-input">Search for a city</label>
-            <input type="text" id="city-input"><br>
-            <input id="find-city" type="submit" value="City Search">
-        </form>
+    <section class="columns is-0">
+        <div id="search-menu" class="column is-one-fifth">
+            <div class="field">
+                <p id="search-menu-head">Search for a city</p>
+                <div class="control">
+                    <input id="city-input" class="input" type="text" placeholder="name-input">
+                </div>
+            </div>
+            <div class="control">
+                <button id="find-city" class="button">Search</button>
+            </div>
+        </div>
+
+        <main id="main-display" class="column">
+            <article>
+                <div class="columns is-variable is-0">
+                    <div class="column is-one-half">
+                        <h id="city-view">City: <span id="city-name" class="city-name"></span></h><br>
+                        <h id="temperature">Temperature: <span class="show-temperature"></span></h><br>
+                        <h id="windSpeed">Wind Speed: <span class="windSpeed"></span></h><br>
+                        <h id="humidity">Humidity: <span class="humidity"></span></h><br>
+                        <h id="UVindex">UV Index: <span class="UVindex"></span></h><br>
+                    </div>
+
+                    <div id="display-results" class="column">
+                        <div class="show-image"></div><br>
+                    </div>
+                </div>
+            </article>
+        </main>
     </section>
-    <div id="city-view"></div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript">
-        var searchHistory = []
-
-        // Build button to trigger AJAX call
-        $("#find-city").on("click", function (event) {
-            event.preventDefault();
-            var city = $("#city-input").val();
-            searchHistory.push(city)
-            // API key
-            var APIKey = "e12e920767d761fecb84037722ebae76";
-            var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + APIKey;
-            // AJAX call
-            $.ajax({
-                url: queryURL,
-                method: "GET"
-            }).then(function (response) {
-                console.log(response);
-                var cityName = $("<div class='city'>");
-                var temperature = response.main;
-            });
-        });
-
-    </script>
-    </div>
+    <script src="./script.js"></script>
 </body>
 
 </html>

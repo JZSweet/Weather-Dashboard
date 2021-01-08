@@ -1,0 +1,12 @@
+.header {
+    padding: 30px;
+    text-align: center;
+    background: #10473c;
+    color: rgb(246, 124, 124);
+    font-size: 50px;
+    font-family: "Lucida Console";
+  };
+
+.city-name {
+    font-size: 30px;
+}
