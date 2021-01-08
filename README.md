@@ -12,3 +12,6 @@ A weather dashboard that has outlook for multiple cities.
 * Future weather conditions for that city  presented with a 5-day forecast that displays the date, an icon representation of weather conditions, the temperature, and the humidity.
 * City in the search history presented with current and future conditions for that city.
 * Open the weather dashboard presented with the last searched city forecast.
+
+## Img
+![](img.png)
